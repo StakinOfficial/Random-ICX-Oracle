@@ -23,3 +23,8 @@ A generic oracle on ICON working to provide a new random number between 0 and 1.
 - An backend script which generates a random number and commit it to the onchain oracle every hour
 
 ## More Info coming soon
+
+
+### TODO
+[] MultiOracle - MutliSig
+[] Dynamic Time limits
