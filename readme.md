@@ -25,6 +25,6 @@ A generic oracle on ICON working to provide a new random number between 0 and 1.
 ## More Info coming soon
 
 
-### TODO
-[] MultiOracle - MutliSig
-[] Dynamic Time limits
+### #TODO
+* MultiOracle - MutliSig
+* Dynamic Time limits
