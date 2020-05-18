@@ -1,0 +1,13 @@
+{
+    "uri": "https://bicon.net.solidwallet.io/api/v3",
+    "nid": "0x3",
+    "keyStore": null,
+    "from": "hx3f94360f1abd219c881ba6117090352a486532d2",
+    "to": "cx0000000000000000000000000000000000000000",
+    "deploy": {
+        "mode": "install",
+        "scoreParams": {}
+    },
+    "txresult": {},
+    "transfer": {}
+}

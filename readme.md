@@ -18,7 +18,7 @@ A generic oracle on ICON working to provide a new random number between 0 and 1.
 
 ## Components
 
-- An running Score on the ICON Network which contains an function to provide a random number between 0 and 1 every one hour.
+- An running Score on the ICON Network which contains an function to provide a random number between 0 and 100000 every one hour. (considering a 5 decimal 0-1 system)
 
 - An backend script which generates a random number and commit it to the onchain oracle every hour
 
@@ -26,5 +26,12 @@ A generic oracle on ICON working to provide a new random number between 0 and 1.
 
 
 ### #TODO
+* Backend
+* Tests
 * MultiOracle - MutliSig
 * Dynamic Time limits
+* Improve Decimal point coverage
+
+### Deployment - 
+
+* Yeouido - cx214f7958334a59d451bc232f37cdb6c06b682f47

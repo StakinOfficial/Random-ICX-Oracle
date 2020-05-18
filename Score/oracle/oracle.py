@@ -10,11 +10,12 @@ class RandomOracle(IconScoreBase):
         self.admin_address = VarDB('admin_address', db, value_type=Address)
         self.expiry = VarDB('expiry', db, value_type=int)
         self.increase = VarDB('increase', db, value_type=int)
+        self.random = VarDB('random', db, value_type=int)
 
     def on_install(self) -> None:
         super().on_install()
         self.admin_address.set(self.msg.sender)
-        self.expiry.set(now())
+        self.expiry.set(self.now())
         self.increase.set(1800000000) # 30 minutes
         
     def on_update(self) -> None:
@@ -24,22 +25,19 @@ class RandomOracle(IconScoreBase):
     def setIncrease(self, value: int):
         if msg.sender != admin_address:
             revert("only admin can change timer")
-        self.expiry.increase(value)
+        self.increase.set(value)
     
     @external
     def setRandom(self, value: int):
-        if msg.sender != admin_address:
+        if self.msg.sender != self.admin_address.get():
             revert("only admin can commit a random number")
-        if value < 0 or value > 1: 
-            revert("only values between 0 and 1 is allowed")
-        if now < expiry :
-            revert("previous random number is still valid")
+        if value < 0 or value > 100000: 
+            revert("only values between 0 and 100000 is allowed")
+#        if self.now() < self.expiry.get() :
+#            revert("previous random number is still valid")
         self.random.set(value)
-        self.expiry.set(now() + self.increase)
+        self.expiry.set(self.now() + self.increase.get())
 
     @external(readonly=True)
-    def getRandom() -> int:
-        if expiry > now :
-            return 0
-        else :
-            return self.random.get()
+    def getRandom(self) -> int:
+    	return self.random.get()
