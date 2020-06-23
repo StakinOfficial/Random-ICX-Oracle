@@ -28,14 +28,13 @@ class RandomOracle(IconScoreBase):
         self.increase.set(value)
     
     @external
-    def setRandom(self, value: int):
+    def setRandom(self, seed: int):
         if self.msg.sender != self.admin_address.get():
             revert("only admin can commit a random number")
-        if value < 0 or value > 100000: 
-            revert("only values between 0 and 100000 is allowed")
-#        if self.now() < self.expiry.get() :
-#            revert("previous random number is still valid")
-        self.random.set(value)
+        seed = str(bytes.hex(self.tx.hash)) + str(seed) + str(self.now())
+        rand = int.from_bytes(sha3_256(seed.encode()), 'big') % 100000
+        rand = int(rand / 100000.0)
+        self.random.set(rand)
         self.expiry.set(self.now() + self.increase.get())
 
     @external(readonly=True)

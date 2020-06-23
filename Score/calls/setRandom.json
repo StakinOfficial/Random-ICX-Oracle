@@ -15,7 +15,7 @@
         "data": {
             "method": "setRandom",
             "params": {
-                "value": "0x35"
+                "seed": "0x35"
             }
         }
     },
