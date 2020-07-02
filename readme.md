@@ -14,13 +14,13 @@
 
 ## Introduction
 
-A generic oracle on ICON working to provide a new random number between 0 and 1. A new random number would be generated evert hour.
+A generic oracle on ICON working to provide a new random number between 0 and 1. A new random number would be generated every hour.
 
 ## Components
 
-- An running Score on the ICON Network which contains an function to provide a random number between 0 and 100000 every one hour. (considering a 5 decimal 0-1 system)
+- A running SCORE on the ICON Network contains a function to provide a random number between 0 and 100000 every hour (considering a 5 decimal 0-1 system).
 
-- An backend script which generates a random number and commit it to the onchain oracle every hour
+- A backend script which generates a random number and commits it to the on-chain oracle every hour.
 
 ## More Info coming soon
 
